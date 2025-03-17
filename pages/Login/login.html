@@ -1,11 +1,440 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ramadan Login / Register</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a2a6c, #3a183d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            color: #333;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="20" height="20"><circle cx="50" cy="50" r="25" fill="rgba(255,255,255,0.03)"/></svg>');
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .decorative-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .crescent {
+            position: absolute;
+            font-size: 2.5rem;
+            color: rgba(255, 217, 119, 0.3);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .crescent:nth-child(1) {
+            top: 10%;
+            left: 15%;
+            animation-delay: 0s;
+        }
+
+        .crescent:nth-child(2) {
+            top: 60%;
+            left: 10%;
+            animation-delay: 1s;
+        }
+
+        .crescent:nth-child(3) {
+            top: 20%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .crescent:nth-child(4) {
+            top: 70%;
+            right: 10%;
+            animation-delay: 3s;
+        }
+
+        .lantern {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 159, 67, 0.4);
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .lantern:nth-child(5) {
+            top: 30%;
+            left: 7%;
+            animation-delay: 0.5s;
+        }
+
+        .lantern:nth-child(6) {
+            top: 75%;
+            left: 20%;
+            animation-delay: 1.5s;
+        }
+
+        .lantern:nth-child(7) {
+            top: 25%;
+            right: 7%;
+            animation-delay: 2.5s;
+        }
+
+        .lantern:nth-child(8) {
+            top: 80%;
+            right: 20%;
+            animation-delay: 3.5s;
+        }
+
+        .container {
+            width: 400px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            animation: fadeIn 0.8s ease-out forwards;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #14213d);
+            padding: 20px 0;
+            text-align: center;
+            color: #fff;
+            border-bottom: 3px solid #ffd166;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .header p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .ramadan-icon {
+            font-size: 2rem;
+            color: #ffd166;
+            margin-bottom: 10px;
+        }
+
+        .tab {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .tab button {
+            flex: 1;
+            padding: 18px 0;
+            background: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            color: #555;
+            position: relative;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .tab button i {
+            margin-right: 8px;
+            font-size: 1.1rem;
+        }
+
+        .tab button:hover {
+            color: #14213d;
+        }
+
+        .tab button.active {
+            color: #14213d;
+            background-color: rgba(255, 209, 102, 0.1);
+        }
+
+        .tab button.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 3px;
+            background: #ffd166;
+            border-radius: 3px 3px 0 0;
+        }
+
+        .form-container {
+            padding: 30px;
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-weight: 600;
+            color: #14213d;
+            text-align: center;
+        }
+
+        .form-container form {
+            display: none;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+
+        .form-container form.active {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+            transition: all 0.3s;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 15px;
+            transition: all 0.3s;
+            background-color: #f8f9fa;
+        }
+
+        .input-group input:focus {
+            border-color: #14213d;
+            box-shadow: 0 0 0 3px rgba(20, 33, 61, 0.15);
+            outline: none;
+            background-color: #fff;
+        }
+
+        .input-group input:focus+i {
+            color: #14213d;
+        }
+
+        .input-group input::placeholder {
+            color: #aaa;
+        }
+
+        .form-container button {
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            background: linear-gradient(135deg, #14213d 0%, #2c3e50 100%);
+            color: #fff;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(20, 33, 61, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .form-container button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s;
+        }
+
+        .form-container button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(20, 33, 61, 0.4);
+        }
+
+        .form-container button:hover::before {
+            left: 100%;
+        }
+
+        .form-container button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(20, 33, 61, 0.2);
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .form-footer a {
+            color: #14213d;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .form-footer a:hover {
+            color: #ffd166;
+        }
+
+        .ramadan-wishes {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #14213d;
+            font-style: italic;
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="decorative-elements">
+        <i class="fas fa-moon crescent"></i>
+        <i class="fas fa-moon crescent"></i>
+        <i class="fas fa-moon crescent"></i>
+        <i class="fas fa-moon crescent"></i>
+        <i class="fas fa-lightbulb lantern"></i>
+        <i class="fas fa-lightbulb lantern"></i>
+        <i class="fas fa-lightbulb lantern"></i>
+        <i class="fas fa-lightbulb lantern"></i>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <i class="fas fa-star-and-crescent ramadan-icon"></i>
+            <h1>Ramadan Kareem</h1>
+        </div>
+        <div class="tab">
+            <button class="tablinks active" onclick="openForm(event, 'login')">
+                <i class="fas fa-user-circle"></i> Login
+            </button>
+            <button class="tablinks" onclick="openForm(event, 'register')">
+                <i class="fas fa-user-plus"></i> Register
+            </button>
+        </div>
+        <div class="form-container">
+            <form id="login" class="active">
+                <h2>Welcome Back</h2>
+                <div class="input-group">
+                    <input type="email" placeholder="Email" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="input-group">
+                    <input type="password" placeholder="Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <button type="submit">
+                    Login
+                </button>
+            </form>
+            <form id="register">
+                <h2>Create Account</h2>
+                <div class="input-group">
+                    <input type="text" placeholder="Username" required>
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="input-group">
+                    <input type="email" placeholder="Email" required>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" placeholder="Password" required>
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="confirm-password" placeholder="Confirm Password" required>
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <button type="submit">
+                    Register
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openForm(evt, formName) {
+            var i, forms, tablinks;
+            forms = document.querySelectorAll(".form-container form");
+            for (i = 0; i < forms.length; i++) {
+                forms[i].classList.remove("active");
+            }
+            tablinks = document.querySelectorAll(".tab button");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(formName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+    <script src="./login.js" type="module"></script>
 </body>
+
 </html>

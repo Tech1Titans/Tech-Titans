@@ -1,6 +1,8 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+import { getDatabase } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
@@ -11,8 +13,12 @@ const firebaseConfig = {
   projectId: "hackathon-279db",
   storageBucket: "hackathon-279db.firebasestorage.app",
   messagingSenderId: "306789052512",
-  appId: "1:306789052512:web:564f2562a59b78e6dcd305"
+  appId: "1:306789052512:web:564f2562a59b78e6dcd305",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getDatabase(app);
+
+export { app, auth, db };
