@@ -25,7 +25,6 @@ function startCountdown() {
   setInterval(updateCountdown, 1000);
 }
 
-// تحميل معرض الصور الرمضانية
 function loadGallery() {
   const gallery = document.getElementById("gallery");
   // مصفوفة لصور رمضانية (يمكنك استبدال الروابط بصورك المفضلة)
@@ -43,7 +42,7 @@ function loadGallery() {
     img.src = src;
     img.alt = "صورة رمضانية";
     img.className =
-      "w-full h-64 object-cover rounded-lg shadow-md hover:scale-105 transition-transform";
+      "w-full h-64 object-cover rounded-lg shadow-md hover:scale-105 transition-transform border-4 border-[#EC8305]";
     gallery.appendChild(img);
   });
 }
