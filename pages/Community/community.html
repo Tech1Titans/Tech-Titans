@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ramadan Activities Forum</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <style>
+   
+    .post { background-color: #F8F3E6; border-radius: 1rem; padding: 1.25rem; margin-bottom: 1rem; border: 1px solid #E9B949; }
+    .post-header { display: flex; justify-content: space-between; margin-bottom: 1rem; }
+    .post-author { display: flex; align-items: center; gap: 1rem; }
+    .post-author img { width: 40px; height: 40px; border-radius: 50%; border: 2px solid #C19434; }
+    .post-content { color: #33404F; margin-bottom: 1rem; }
+    .post-actions { display: flex; gap: 1rem; }
+    .post-actions button { display: flex; align-items: center; color: #1F3A5F; }
+    .comment-section { margin-top: 1rem; border-top: 1px solid #E9B949; padding-top: 1rem; }
+    .comment-input { width: 100%; padding: 0.5rem; border-radius: 0.5rem; border: 1px solid #ddd; margin-bottom: 0.5rem; }
+    .comments-container { margin-top: 1rem; }
+    .comment { padding: 0.75rem; background-color: white; border-radius: 0.5rem; margin-bottom: 0.75rem; border: 1px solid #E9B949; }
+    button {
+    padding: 8px 24px; /* معادل لـ px-6 py-2 */
+    background: linear-gradient(to right, #C19434, #E9B949); /* تأثير التدرج */
+    color: white; /* لون النص */
+    font-weight: 600; /* سمك الخط */
+    border-radius: 9999px; /* لتدوير الحواف بالكامل */
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* تأثير الظل عند التحويم */
+    transform: scale(1.05); /* تكبير الزرّ قليلاً عند التحويم */
+}
+  </style>
+  
+</head>
+<body class="relative overflow-x-hidden">
+
+  <div id="date-container" class="fixed w-full h-full pointer-events-none z-10"></div>
+
+  <!-- <header class="bg-gradient-to-r from-[#1F3A5F] to-[#284A7E] text-white shadow-md relative overflow-hidden">
+    <div class="star-pattern absolute inset-0 opacity-10"></div>
+    <div class="container mx-auto px-4 py-3">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center mb-4 md:mb-0">
+          <div class="crescent-moon mr-3"></div>
+          <div class="text-2xl md:text-3xl font-bold">
+            Ramadan<span class="text-[#E9B949]">Forum</span>
+          </div>
+        </div>
+        
+        <nav class="w-full md:w-auto">
+          <ul class="flex flex-wrap justify-center gap-3 md:gap-6">
+            <li><a href="#" class="px-3 py-2 rounded-full hover:bg-[#3A5A8C] transition-colors">Home</a></li>
+            <li><a href="#" class="px-3 py-2 rounded-full hover:bg-[#3A5A8C] transition-colors">Activities</a></li>
+            <li><a href="#" class="px-3 py-2 rounded-full hover:bg-[#3A5A8C] transition-colors">Calendar</a></li>
+            <li><a href="#" class="px-3 py-2 rounded-full hover:bg-[#3A5A8C] transition-colors">Resources</a></li>
+            <li><a href="#" class="px-3 py-2 rounded-full hover:bg-[#3A5A8C] transition-colors">About</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header> -->
+  
+  <section class="relative py-20 md:py-28 overflow-hidden">
+  
+    <div class="absolute inset-0 bg-[#1F3A5F] ramadan-pattern opacity-95"></div>
+    
+   
+    <div class="absolute top-5 left-1/4 lantern" style="animation-delay: 0.5s;">
+      <svg width="60" height="100" viewBox="0 0 60 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 0L30 15" stroke="#C19434" stroke-width="2"/>
+        <path d="M20 15H40V70H20V15Z" fill="#E9B949"/>
+        <path d="M15 20H45V65H15V20Z" fill="#C19434" fill-opacity="0.3"/>
+        <path d="M25 70H35L40 80H20L25 70Z" fill="#C19434"/>
+        <path d="M24 25H36M24 35H36M24 45H36M24 55H36" stroke="#1F3A5F" stroke-width="2"/>
+      </svg>
+    </div>
+    
+    <div class="absolute top-0 right-1/4 lantern" style="animation-delay: 0.2s;">
+      <svg width="60" height="100" viewBox="0 0 60 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 0L30 15" stroke="#C19434" stroke-width="2"/>
+        <path d="M20 15H40V70H20V15Z" fill="#C19434"/>
+        <path d="M15 20H45V65H15V20Z" fill="#E9B949" fill-opacity="0.3"/>
+        <path d="M25 70H35L40 80H20L25 70Z" fill="#E9B949"/>
+        <path d="M24 25H36M24 35H36M24 45H36M24 55H36" stroke="#1F3A5F" stroke-width="2"/>
+      </svg>
+    </div>
+    
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="text-center text-white max-w-3xl mx-auto">
+        <h1 class="text-3xl md:text-5xl font-bold mb-6 pulse">مرحبًا بكم في منتدى أنشطة رمضان</h1>
+        <div class="arabic-text text-[#E9B949] text-xl md:text-2xl mb-6">رمضان كريم</div>
+        <p class="text-xl opacity-90 mb-8">تواصل مع المجتمع، شارك تجاربك، واكتشف أنشطة جديدة لهذا الشهر المبارك</p>
+        <a href="#" class="inline-block bg-[#E9B949] text-[#1F3A5F] font-bold px-6 py-3 rounded-full hover:bg-[#C19434] transition-colors text-lg shadow-lg">
+       شارك في مجتمعنا
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <main class="py-12 relative">
+   
+    <div class="absolute -top-10 left-5 lantern float" style="transform: scale(0.7); animation-delay: 1s; opacity: 0.7;">
+      <svg width="60" height="100" viewBox="0 0 60 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 0L30 15" stroke="#C19434" stroke-width="2"/>
+        <path d="M20 15H40V70H20V15Z" fill="#E9B949"/>
+        <path d="M15 20H45V65H15V20Z" fill="#C19434" fill-opacity="0.3"/>
+        <path d="M25 70H35L40 80H20L25 70Z" fill="#C19434"/>
+        <path d="M24 25H36M24 35H36M24 45H36M24 55H36" stroke="#1F3A5F" stroke-width="2"/>
+      </svg>
+    </div>
+    
+    <div class="absolute top-40 right-5 lantern float" style="transform: scale(0.6); animation-delay: 0.7s; opacity: 0.7;">
+      <svg width="60" height="100" viewBox="0 0 60 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M30 0L30 15" stroke="#C19434" stroke-width="2"/>
+        <path d="M20 15H40V70H20V15Z" fill="#C19434"/>
+        <path d="M15 20H45V65H15V20Z" fill="#E9B949" fill-opacity="0.3"/>
+        <path d="M25 70H35L40 80H20L25 70Z" fill="#E9B949"/>
+        <path d="M24 25H36M24 35H36M24 45H36M24 55H36" stroke="#1F3A5F" stroke-width="2"/>
+      </svg>
+    </div>
+    
+    <div class="container mx-auto px-4">
+      
+      <div class="bg-white rounded-2xl shadow-lg mb-8 overflow-hidden transition-all transform hover:shadow-xl">
+        <div class="bg-gradient-to-r from-[#1F3A5F] to-[#284A7E] py-3 px-4">
+          <h2 class="text-white text-xl font-semibold flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+           انشاء منشور
+          </h2>
+        </div>
+        <div class="p-6">
+          <textarea id="new-post-text" class="w-full p-4 border border-gray-200 rounded-xl resize-none text-[#33404F] focus:outline-none focus:ring-2 focus:ring-[#C19434] focus:border-transparent transition-all min-h-24 mb-4" placeholder="  شارك نشاطك او تجربتك في رمضان"></textarea>
+          <div class="flex flex-wrap justify-between items-center">
+            <div class="flex gap-4">
+              <button class="flex items-center text-[#1F3A5F] hover:text-[#C19434] transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                  <polyline points="21 15 16 10 5 21"></polyline>
+                </svg>
+                صورة
+              </button>
+              <button class="flex items-center text-[#1F3A5F] hover:text-[#C19434] transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                  <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                </svg>
+               فيديو
+              </button>
+              <button class="flex items-center text-[#1F3A5F] hover:text-[#C19434] transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                  <circle cx="12" cy="10" r="3"></circle>
+                </svg>
+                الموقع
+              </button>
+            </div>
+            <button id="post-btn" class="px-6 py-2 bg-gradient-to-r from-[#C19434] to-[#E9B949] text-white font-semibold rounded-full hover:shadow-lg transition-all transform hover:scale-105">
+              نشر
+            </button>
+          </div>
+        </div>
+      </div>
+      
+  
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+        <div class="bg-gradient-to-r from-[#1F3A5F] to-[#284A7E] py-3 px-4">
+          <h2 class="text-white text-xl font-semibold flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5 mr-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" />
+            </svg>
+            الأنشطة الأخيرة
+          </h2>
+        </div>
+        <div class="p-4 posts-container">
+         
+          </div> 
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <!-- <footer class="bg-gradient-to-r from-[#1F3A5F] to-[#284A7E] text-white py-6 mt-16 relative">
+    <div class="star-pattern absolute inset-0 opacity-10"></div>
+    <div class="container mx-auto px-4 text-center">
+      <div class="flex justify-center mb-4">
+        <div class="arabic-text text-[#E9B949] text-xl">رمضان مبارك</div>
+      </div>
+      <p>&copy; 2025 Ramadan Forum. All rights reserved.</p>
+    </div>
+  </footer> -->
+  
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-app.js";
+    import { getDatabase, ref, push, onChildAdded, update } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-database.js";
+    
+    const firebaseConfig = {
+      apiKey: "AIzaSyD_2ZRI9mgUuFW5JorssdG1qOwChtXCcBQ",
+      authDomain: "hackathon-279db.firebaseapp.com",
+      databaseURL: "https://hackathon-279db-default-rtdb.firebaseio.com",
+      projectId: "hackathon-279db",
+      storageBucket: "hackathon-279db.firebasestorage.app",
+      messagingSenderId: "306789052512",
+      appId: "1:306789052512:web:564f2562a59b78e6dcd305"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const postsRef = ref(db, "posts");
+
+  
+    function createPostElement(postData, postId) {
+      const postDiv = document.createElement("div");
+      postDiv.className = "post";
+
+      const postHeader = document.createElement("div");
+      postHeader.className = "post-header";
+      
+      const postAuthor = document.createElement("div");
+      postAuthor.className = "post-author";
+      const avatar = document.createElement("img");
+      avatar.src = postData.avatar || "https://via.placeholder.com/40";
+      postAuthor.appendChild(avatar);
+      const authorName = document.createElement("span");
+      authorName.className = "author-name";
+      authorName.textContent = postData.author;
+      postAuthor.appendChild(authorName);
+      
+      const postTime = document.createElement("span");
+      postTime.className = "post-time";
+      postTime.textContent = new Date(postData.timestamp).toLocaleString();
+      postHeader.appendChild(postAuthor);
+      postHeader.appendChild(postTime);
+
+      const postContent = document.createElement("div");
+      postContent.className = "post-content";
+      postContent.textContent = postData.content;
+
+      const postActions = document.createElement("div");
+      postActions.className = "post-actions";
+
+    
+      const likeButton = document.createElement("button");
+      likeButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"></path>
+          <path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
+        </svg> 
+        Like (<span class="like-count">${postData.likes || 0}</span>)
+      `;
+      likeButton.addEventListener("click", () => {
+        const newLikes = (postData.likes || 0) + 1;
+        update(ref(db, "posts/" + postId), { likes: newLikes });
+        likeButton.querySelector(".like-count").textContent = newLikes;
+      });
+      postActions.appendChild(likeButton);
+
+      
+      const commentButton = document.createElement("button");
+      commentButton.innerHTML = `
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+        </svg> 
+        Comment
+      `;
+      commentButton.addEventListener("click", () => {
+        const commentForm = postDiv.querySelector(".comment-form");
+        if (commentForm.classList.contains("active")) {
+          commentForm.classList.remove("active");
+        } else {
+          commentForm.classList.add("active");
+          commentForm.querySelector(".comment-input").focus();
+        }
+      });
+      postActions.appendChild(commentButton);
+
+     
+      const commentForm = document.createElement("div");
+      commentForm.className = "comment-form";
+      const commentInput = document.createElement("input");
+      commentInput.type = "text";
+      commentInput.className = "comment-input";
+      commentInput.placeholder = "Write your comment...";
+
+      const submitButton = document.createElement("button");
+      submitButton.textContent = "ارسال";
+      submitButton.addEventListener("click", () => {
+        const commentText = commentInput.value.trim();
+        if (commentText) {
+          const commentsRef = ref(db, "posts/" + postId + "/comments");
+          push(commentsRef, {
+            comment: commentText,
+            author: "Current User", 
+            timestamp: Date.now()
+          });
+          commentInput.value = "";
+          commentForm.classList.remove("active");
+        }
+      });
+
+      commentForm.appendChild(commentInput);
+      commentForm.appendChild(submitButton);
+
+   
+      const commentsContainer = document.createElement("div");
+      commentsContainer.className = "comments-container";
+      commentForm.appendChild(commentsContainer);
+
+      postDiv.appendChild(postHeader);
+      postDiv.appendChild(postContent);
+      postDiv.appendChild(postActions);
+      postDiv.appendChild(commentForm);
+
+     
+      const commentsRef = ref(db, "posts/" + postId + "/comments");
+      onChildAdded(commentsRef, (snapshot) => {
+        const commentData = snapshot.val();
+        const commentElement = document.createElement("div");
+        commentElement.className = "comment";
+        commentElement.innerHTML = `
+          <span class="comment-author">${commentData.author}</span>: ${commentData.comment}
+        `;
+        commentsContainer.appendChild(commentElement);
+      });
+
+      return postDiv;
+    }
+
+    
+    onChildAdded(postsRef, (snapshot) => {
+      const postData = snapshot.val();
+      const postId = snapshot.key;
+      const postElement = createPostElement(postData, postId);
+      document.querySelector(".posts-container").appendChild(postElement);
+    });
+
+   
+    const newPostTextarea = document.getElementById("new-post-text");
+    const postButton = document.getElementById("post-btn");
+
+    postButton.addEventListener("click", () => {
+      const content = newPostTextarea.value.trim();
+      if (content !== "") {
+        const newPost = {
+          content: content,
+          author: "Current User",
+          avatar: "https://via.placeholder.com/40",
+          timestamp: Date.now(),
+          likes: 0
+        };
+        push(postsRef, newPost)
+          .then(() => {
+            newPostTextarea.value = "";
+          })
+          .catch((error) => {
+            console.error("Error posting:", error);
+          });
+      }
+    });
+  </script>
+ 
+</body>
+</html>
