@@ -1,516 +1,770 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>أنشطة رمضان الخيرية</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        navy: '#10375C',
-                        orange: '#EB8317',
-                        gold: '#F3C623',
-                        offwhite: '#F4F6FF',
-                        blue: '#3182CE',
-                        green: '#38A169'
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: "#10375C",
+              orange: "#EB8317",
+              gold: "#F3C623",
+              offwhite: "#F4F6FF",
+              blue: "#3182CE",
+              green: "#38A169",
+            },
+          },
+        },
+      };
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap');
+      @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap");
 
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background-image: radial-gradient(circle at 50% 50%, #F4F6FF 0%, #E8EBF7 100%);
+      body {
+        font-family: "Tajawal", sans-serif;
+        background-image: radial-gradient(
+          circle at 50% 50%,
+          #f4f6ff 0%,
+          #e8ebf7 100%
+        );
+      }
+
+      .crescent-moon {
+        box-shadow: 0 0 30px rgba(243, 198, 35, 0.8);
+      }
+
+      .activity-card {
+        position: relative;
+        transition: all 0.4s ease;
+        border: 1px solid rgba(16, 55, 92, 0.1);
+      }
+
+      .activity-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(16, 55, 92, 0.15);
+      }
+
+      .activity-tag {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        border-radius: 30px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        z-index: 10;
+      }
+
+      .lantern-decoration {
+        position: absolute;
+        opacity: 0.15;
+        z-index: 0;
+        filter: drop-shadow(0 0 10px currentColor);
+        animation: float 8s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
         }
 
-        .crescent-moon {
-            box-shadow: 0 0 30px rgba(243, 198, 35, 0.8);
+        50% {
+          transform: translateY(-15px) rotate(5deg);
+        }
+      }
+
+      .islamic-pattern {
+        background-image: linear-gradient(
+            to right,
+            rgba(16, 55, 92, 0.03) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(16, 55, 92, 0.03) 1px,
+            transparent 1px
+          );
+        background-size: 20px 20px;
+      }
+
+      .quote-text {
+        position: relative;
+        z-index: 10;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn-register {
+        display: block;
+        width: 100%;
+        padding: 0.75rem 1rem;
+        text-align: center;
+        font-weight: bold;
+        color: white;
+        background-color: #eb8317;
+        border-radius: 0.5rem;
+        transition: all 0.3s ease;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .btn-register:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(235, 131, 23, 0.4);
+      }
+
+      .btn-blue {
+        background-color: #3182ce;
+      }
+
+      .btn-blue:hover {
+        box-shadow: 0 5px 15px rgba(49, 130, 206, 0.4);
+      }
+
+      .btn-green {
+        background-color: #38a169;
+      }
+
+      .btn-green:hover {
+        box-shadow: 0 5px 15px rgba(56, 161, 105, 0.4);
+      }
+
+      .btn-register::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to right,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: all 0.6s ease;
+      }
+
+      .btn-register:hover::after {
+        left: 100%;
+      }
+
+      .header-decoration {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 15px;
+        background: linear-gradient(
+          90deg,
+          #f3c623 25%,
+          transparent 25%,
+          transparent 50%,
+          #f3c623 50%,
+          #f3c623 75%,
+          transparent 75%,
+          transparent 100%
+        );
+        background-size: 40px 40px;
+        opacity: 0.5;
+      }
+
+      .animated-glow {
+        animation: glow 3s ease-in-out infinite;
+      }
+
+      @keyframes glow {
+        0%,
+        100% {
+          filter: drop-shadow(0 0 5px currentColor);
         }
 
-        .activity-card {
-            position: relative;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(16, 55, 92, 0.1);
+        50% {
+          filter: drop-shadow(0 0 20px currentColor);
         }
+      }
 
-        .activity-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(16, 55, 92, 0.15);
-        }
+      .select-custom {
+        background-image: linear-gradient(to bottom, #f4f6ff, #e8ebf7);
+        box-shadow: 0 2px 5px rgba(16, 55, 92, 0.1);
+      }
 
-        .activity-tag {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            border-radius: 30px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-        }
+      .light-bulb {
+        position: relative;
+      }
 
-        .lantern-decoration {
-            position: absolute;
-            opacity: 0.15;
-            z-index: 0;
-            filter: drop-shadow(0 0 10px currentColor);
-            animation: float 8s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%,
-            100% {
-                transform: translateY(0) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-15px) rotate(5deg);
-            }
-        }
-
-        .islamic-pattern {
-            background-image:
-                linear-gradient(to right, rgba(16, 55, 92, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(16, 55, 92, 0.03) 1px, transparent 1px);
-            background-size: 20px 20px;
-        }
-
-        .quote-text {
-            position: relative;
-            z-index: 10;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .btn-register {
-            display: block;
-            width: 100%;
-            padding: 0.75rem 1rem;
-            text-align: center;
-            font-weight: bold;
-            color: white;
-            background-color: #EB8317;
-            border-radius: 0.5rem;
-            transition: all 0.3s ease;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .btn-register:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(235, 131, 23, 0.4);
-        }
-
-        .btn-blue {
-            background-color: #3182CE;
-        }
-
-        .btn-blue:hover {
-            box-shadow: 0 5px 15px rgba(49, 130, 206, 0.4);
-        }
-
-        .btn-green {
-            background-color: #38A169;
-        }
-
-        .btn-green:hover {
-            box-shadow: 0 5px 15px rgba(56, 161, 105, 0.4);
-        }
-
-        .btn-register::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: all 0.6s ease;
-        }
-
-        .btn-register:hover::after {
-            left: 100%;
-        }
-
-        .header-decoration {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 15px;
-            background: linear-gradient(90deg, #F3C623 25%, transparent 25%, transparent 50%, #F3C623 50%, #F3C623 75%, transparent 75%, transparent 100%);
-            background-size: 40px 40px;
-            opacity: 0.5;
-        }
-
-        .animated-glow {
-            animation: glow 3s ease-in-out infinite;
-        }
-
-        @keyframes glow {
-            0%,
-            100% {
-                filter: drop-shadow(0 0 5px currentColor);
-            }
-
-            50% {
-                filter: drop-shadow(0 0 20px currentColor);
-            }
-        }
-
-        .select-custom {
-            background-image: linear-gradient(to bottom, #F4F6FF, #E8EBF7);
-            box-shadow: 0 2px 5px rgba(16, 55, 92, 0.1);
-        }
-
-        .light-bulb {
-            position: relative;
-        }
-
-        .light-bulb::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 40px;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: radial-gradient(ellipse at center, currentColor 0%, transparent 70%);
-            opacity: 0.3;
-        }
+      .light-bulb::after {
+        content: "";
+        position: absolute;
+        width: 20px;
+        height: 40px;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: radial-gradient(
+          ellipse at center,
+          currentColor 0%,
+          transparent 70%
+        );
+        opacity: 0.3;
+      }
     </style>
-</head>
+  </head>
 
-<body class="bg-offwhite">
+  <body class="bg-offwhite">
     <!-- Header with Ramadan Decoration -->
-    <header class="relative bg-navy text-offwhite py-20 text-center overflow-hidden">
-        <!-- Decorative Elements -->
-        <div class="absolute top-5 left-5 opacity-20 animated-glow">
-            <i class="fas fa-mosque text-6xl text-gold"></i>
+    <header class="bg-[#10334C] text-white p-4 w-full top-0 left-0 z-50">
+      <div class="max-w-6xl mx-auto flex justify-between items-center">
+        <div class="text-2xl font-bold">
+          <img
+            src="../../img//logo.png"
+            alt="شعار التطبيق"
+            class="h-14 inline-block mr-2 bg-[#ec8305]"
+          />
+          رمضان الخير
         </div>
-        <div class="absolute top-5 right-5 opacity-20 animated-glow">
-            <i class="fas fa-star-and-crescent text-6xl text-gold"></i>
+        <nav>
+          <ul class="flex space-x-6">
+            <li>
+              <a href="/index.html" class="hover:text-[#EC8305]">الرئيسية</a>
+            </li>
+            <li>
+              <a
+                href="/pages/activityPage/activityPage.html"
+                class="hover:text-[#EC8305]"
+                >برامج خيرية</a
+              >
+            </li>
+            <li>
+              <a
+                href="/pages/Donation/ZakahCalculator.html"
+                class="hover:text-[#EC8305]"
+                >حاسبة الزكاة</a
+              >
+            </li>
+            <li>
+              <a href="/pages/About/about.html" class="hover:text-[#EC8305]"
+                >من نحن</a
+              >
+            </li>
+            <li>
+              <a href="/pages/Contact/contact.html" class="hover:text-[#EC8305]"
+                >اتصل بنا</a
+              >
+            </li>
+            <li>
+              <a href="/pages/Profile/profile.html" class="hover:text-[#EC8305]"
+                >الصفحة الشخصيه</a
+              >
+            </li>
+            <!-- <li><a href="/pages/Login/login.html" class="hover:text-[#EC8305]">تسجيل الدخول</a></li> -->
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <header
+      class="relative bg-navy text-offwhite py-20 text-center overflow-hidden"
+    >
+      <!-- Decorative Elements -->
+      <div class="absolute top-5 left-5 opacity-20 animated-glow">
+        <i class="fas fa-mosque text-6xl text-gold"></i>
+      </div>
+      <div class="absolute top-5 right-5 opacity-20 animated-glow">
+        <i class="fas fa-star-and-crescent text-6xl text-gold"></i>
+      </div>
+      <div
+        class="absolute bottom-0 left-0 w-full h-8 bg-orange opacity-20"
+        style="
+          clip-path: polygon(
+            0 100%,
+            100% 100%,
+            100% 0,
+            80% 50%,
+            60% 0,
+            40% 50%,
+            20% 0,
+            0 50%
+          );
+        "
+      ></div>
+      <div class="absolute top-0 left-0 w-full h-full islamic-pattern"></div>
+      <div class="header-decoration"></div>
+
+      <!-- Header Content -->
+      <div class="relative z-10">
+        <!-- Crescent Moon Icon -->
+        <div class="mx-auto w-24 h-24 mb-6">
+          <div
+            class="crescent-moon w-20 h-20 bg-gold rounded-full mx-auto relative animated-glow"
+          >
+            <div class="absolute w-16 h-16 bg-navy rounded-full right-6"></div>
+          </div>
         </div>
-        <div class="absolute bottom-0 left-0 w-full h-8 bg-orange opacity-20"
-            style="clip-path: polygon(0 100%, 100% 100%, 100% 0, 80% 50%, 60% 0, 40% 50%, 20% 0, 0 50%);"></div>
-        <div class="absolute top-0 left-0 w-full h-full islamic-pattern"></div>
-        <div class="header-decoration"></div>
 
-        <!-- Header Content -->
-        <div class="relative z-10">
-            <!-- Crescent Moon Icon -->
-            <div class="mx-auto w-24 h-24 mb-6">
-                <div class="crescent-moon w-20 h-20 bg-gold rounded-full mx-auto relative animated-glow">
-                    <div class="absolute w-16 h-16 bg-navy rounded-full right-6"></div>
-                </div>
-            </div>
+        <h1 class="text-5xl font-bold mb-3">أنشطة رمضان الخيرية</h1>
+        <div class="w-32 h-1 bg-orange mx-auto my-4 rounded-full"></div>
+        <p class="mt-4 text-lg max-w-2xl mx-auto px-4 leading-relaxed">
+          اختر الأنشطة التي ترغب في المشاركة فيها وكن جزءًا من الخير في هذا
+          الشهر المبارك
+        </p>
 
-            <h1 class="text-5xl font-bold mb-3">أنشطة رمضان الخيرية</h1>
-            <div class="w-32 h-1 bg-orange mx-auto my-4 rounded-full"></div>
-            <p class="mt-4 text-lg max-w-2xl mx-auto px-4 leading-relaxed">اختر الأنشطة التي ترغب في المشاركة فيها وكن
-                جزءًا من الخير في
-                هذا الشهر المبارك</p>
-
-            <!-- Decorative Lantern String -->
-            <div class="flex justify-center mt-8 space-x-12 space-x-reverse">
-                <div class="light-bulb">
-                    <i class="fas fa-lightbulb text-gold text-3xl animate-pulse"></i>
-                </div>
-                <div class="light-bulb">
-                    <i class="fas fa-lightbulb text-orange text-3xl animate-pulse" style="animation-delay: 0.3s"></i>
-                </div>
-                <div class="light-bulb">
-                    <i class="fas fa-lightbulb text-gold text-3xl animate-pulse" style="animation-delay: 0.6s"></i>
-                </div>
-                <div class="light-bulb">
-                    <i class="fas fa-lightbulb text-orange text-3xl animate-pulse" style="animation-delay: 0.9s"></i>
-                </div>
-                <div class="light-bulb">
-                    <i class="fas fa-lightbulb text-gold text-3xl animate-pulse" style="animation-delay: 1.2s"></i>
-                </div>
-            </div>
+        <!-- Decorative Lantern String -->
+        <div class="flex justify-center mt-8 space-x-12 space-x-reverse">
+          <div class="light-bulb">
+            <i class="fas fa-lightbulb text-gold text-3xl animate-pulse"></i>
+          </div>
+          <div class="light-bulb">
+            <i
+              class="fas fa-lightbulb text-orange text-3xl animate-pulse"
+              style="animation-delay: 0.3s"
+            ></i>
+          </div>
+          <div class="light-bulb">
+            <i
+              class="fas fa-lightbulb text-gold text-3xl animate-pulse"
+              style="animation-delay: 0.6s"
+            ></i>
+          </div>
+          <div class="light-bulb">
+            <i
+              class="fas fa-lightbulb text-orange text-3xl animate-pulse"
+              style="animation-delay: 0.9s"
+            ></i>
+          </div>
+          <div class="light-bulb">
+            <i
+              class="fas fa-lightbulb text-gold text-3xl animate-pulse"
+              style="animation-delay: 1.2s"
+            ></i>
+          </div>
         </div>
+      </div>
     </header>
 
     <!-- Filter Section with Islamic Patterns -->
     <section class="bg-white shadow-md py-6 sticky top-0 z-20">
-        <div class="container mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <!-- Search Box -->
-                <div class="relative w-full md:w-1/3">
-                    <input id="search" type="text"
-                        class="w-full px-4 py-3 bg-offwhite border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange focus:ring-2 focus:ring-orange focus:ring-opacity-30"
-                        placeholder="ابحث عن نشاط...">
-                    <i class="fas fa-search absolute left-3 top-3.5 text-gray-400"></i>
-                </div>
+      <div class="container mx-auto px-4">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <!-- Search Box -->
+          <div class="relative w-full md:w-1/3">
+            <input
+              id="search"
+              type="text"
+              class="w-full px-4 py-3 bg-offwhite border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange focus:ring-2 focus:ring-orange focus:ring-opacity-30"
+              placeholder="ابحث عن نشاط..."
+            />
+            <i class="fas fa-search absolute left-3 top-3.5 text-gray-400"></i>
+          </div>
 
-                <!-- Filters -->
-                <div class="flex flex-wrap gap-4 w-full md:w-auto">
-                    <div class="relative w-full md:w-auto">
-                        <select id="category"
-                            class="select-custom appearance-none w-full px-4 py-3 pr-10 bg-offwhite border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange focus:ring-2 focus:ring-orange focus:ring-opacity-30">
-                            <option value="">جميع الفئات</option>
-                            <option value="volunteer">التطوع</option>
-                            <option value="workshop">ورش عمل</option>
-                            <option value="sport">رياضة</option>
-                            <option value="education">التعليم</option>
-                            <option value="health">الصحة</option>
-                            <option value="food">تقليل هدر الطعام</option>
-                            <option value="iftar">إفطار رمضان</option>
-                        </select>
-                        <i class="fas fa-chevron-down absolute left-3 top-3.5 text-gray-400 pointer-events-none"></i>
-                    </div>
-
-                    <div class="relative w-full md:w-auto">
-                        <select id="location"
-                            class="select-custom appearance-none w-full px-4 py-3 pr-10 bg-offwhite border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange focus:ring-2 focus:ring-orange focus:ring-opacity-30">
-                            <option value="">المدن</option>
-                            <option value="عمان">عمان</option>
-                            <option value="اربد">إربد</option>
-                            <option value="الزرقاء">الزرقاء</option>
-                            <option value="العقبة">العقبة</option>
-                        </select>
-                        <i class="fas fa-chevron-down absolute left-3 top-3.5 text-gray-400 pointer-events-none"></i>
-                    </div>
-                </div>
+          <!-- Filters -->
+          <div class="flex flex-wrap gap-4 w-full md:w-auto">
+            <div class="relative w-full md:w-auto">
+              <select
+                id="category"
+                class="select-custom appearance-none w-full px-4 py-3 pr-10 bg-offwhite border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange focus:ring-2 focus:ring-orange focus:ring-opacity-30"
+              >
+                <option value="">جميع الفئات</option>
+                <option value="volunteer">التطوع</option>
+                <option value="workshop">ورش عمل</option>
+                <option value="sport">رياضة</option>
+                <option value="education">التعليم</option>
+                <option value="health">الصحة</option>
+                <option value="food">تقليل هدر الطعام</option>
+                <option value="iftar">إفطار رمضان</option>
+              </select>
+              <i
+                class="fas fa-chevron-down absolute left-3 top-3.5 text-gray-400 pointer-events-none"
+              ></i>
             </div>
+
+            <div class="relative w-full md:w-auto">
+              <select
+                id="location"
+                class="select-custom appearance-none w-full px-4 py-3 pr-10 bg-offwhite border-2 border-gray-200 rounded-lg focus:outline-none focus:border-orange focus:ring-2 focus:ring-orange focus:ring-opacity-30"
+              >
+                <option value="">المدن</option>
+                <option value="عمان">عمان</option>
+                <option value="اربد">إربد</option>
+                <option value="الزرقاء">الزرقاء</option>
+                <option value="العقبة">العقبة</option>
+              </select>
+              <i
+                class="fas fa-chevron-down absolute left-3 top-3.5 text-gray-400 pointer-events-none"
+              ></i>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Quote Banner -->
     <section class="bg-navy text-offwhite py-10 relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full islamic-pattern opacity-10"></div>
-        <div class="absolute top-10 left-10">
-            <i class="fas fa-star text-gold text-opacity-10 text-4xl"></i>
-        </div>
-        <div class="absolute bottom-10 right-10">
-            <i class="fas fa-star text-gold text-opacity-10 text-4xl"></i>
-        </div>
-        <div class="container mx-auto px-4 text-center relative z-10">
-            <i class="fas fa-quote-right text-gold text-opacity-50 text-5xl mb-3"></i>
-            <p class="text-2xl italic quote-text">من فطر صائماً كان له مثل أجره، غير أنه لا ينقص من أجر الصائم شيئاً</p>
-            <p class="mt-3 text-gold font-bold">- حديث شريف</p>
-        </div>
+      <div
+        class="absolute top-0 left-0 w-full h-full islamic-pattern opacity-10"
+      ></div>
+      <div class="absolute top-10 left-10">
+        <i class="fas fa-star text-gold text-opacity-10 text-4xl"></i>
+      </div>
+      <div class="absolute bottom-10 right-10">
+        <i class="fas fa-star text-gold text-opacity-10 text-4xl"></i>
+      </div>
+      <div class="container mx-auto px-4 text-center relative z-10">
+        <i
+          class="fas fa-quote-right text-gold text-opacity-50 text-5xl mb-3"
+        ></i>
+        <p class="text-2xl italic quote-text">
+          من فطر صائماً كان له مثل أجره، غير أنه لا ينقص من أجر الصائم شيئاً
+        </p>
+        <p class="mt-3 text-gold font-bold">- حديث شريف</p>
+      </div>
     </section>
 
     <!-- Activity Cards -->
     <section class="py-16 bg-offwhite relative">
-        <!-- Decorative Elements -->
-        <div class="lantern-decoration absolute -top-10 left-10">
-            <i class="fas fa-lantern text-8xl text-orange"></i>
-        </div>
-        <div class="lantern-decoration absolute top-40 right-10">
-            <i class="fas fa-moon text-6xl text-gold"></i>
-        </div>
-        <div class="lantern-decoration absolute bottom-20 left-1/4">
-            <i class="fas fa-star text-4xl text-orange"></i>
-        </div>
-        <div class="lantern-decoration absolute top-80 right-1/4">
-            <i class="fas fa-star text-3xl text-gold"></i>
-        </div>
+      <!-- Decorative Elements -->
+      <div class="lantern-decoration absolute -top-10 left-10">
+        <i class="fas fa-lantern text-8xl text-orange"></i>
+      </div>
+      <div class="lantern-decoration absolute top-40 right-10">
+        <i class="fas fa-moon text-6xl text-gold"></i>
+      </div>
+      <div class="lantern-decoration absolute bottom-20 left-1/4">
+        <i class="fas fa-star text-4xl text-orange"></i>
+      </div>
+      <div class="lantern-decoration absolute top-80 right-1/4">
+        <i class="fas fa-star text-3xl text-gold"></i>
+      </div>
 
-        <div class="container mx-auto px-4">
-            <h2 class="text-3xl font-bold text-navy text-center mb-12">الأنشطة المتاحة</h2>
-            
-            <div id="activities" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Activity Card 1: Volunteering -->
-                
-<div class="activity-card relative bg-white rounded-xl overflow-hidden shadow-lg" data-category="volunteer" data-location="عمان">
-    <div class="activity-tag bg-orange text-white px-3 py-1 text-sm font-bold rounded-md">
-        تطوع
-    </div>
-    <img src="/img/توزيع.jpeg" alt="نشاط التطوع" class="w-full h-48 object-cover">
-    <div class="p-6">
-        <div class="flex items-center mb-4">
-            <i class="fas fa-hands-helping text-orange ml-2"></i>
-            <h3 class="text-xl font-bold text-navy">تطوع في توزيع الطعام</h3>
-        </div>
-        <p class="text-gray-600 mb-4">ساعد في توزيع الطعام للعائلات المحتاجة في عمّان. يُقام هذا النشاط كل يوم سبت.</p>
-        <div class="flex justify-between items-center text-sm text-gray-500">
-            <div class="flex items-center">
-                <i class="fas fa-map-marker-alt ml-1"></i>
-                <span>عمّان، الأردن</span>
-            </div>
-            <div class="flex items-center">
-                <i class="far fa-clock ml-1"></i>
-                <span>٣ ساعات</span>
-            </div>
-        </div>
-    </div>
-    <div class="p-4 bg-gray-50 border-t border-gray-100">
-        <a href="#" class="btn-register">
-            تبرع الآن
-            <i class="fas fa-arrow-left mr-2"></i>
-        </a>
-    </div>
-</div>
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-navy text-center mb-12">
+          الأنشطة المتاحة
+        </h2>
 
-<!-- Activity Card 2: Workshop -->
-<div class="activity-card relative bg-white rounded-xl overflow-hidden shadow-lg" data-category="workshop" data-location="الزرقاء">
-    <div class="activity-tag bg-blue text-white px-3 py-1 text-sm font-bold rounded-md">
-        ورش عمل
-    </div>
-    <img src="\img\2369_8257_ورشة-رسم-706x470.png" alt="ورشة عمل فنية" class="w-full h-48 object-cover">
-    <div class="p-6">
-        <div class="flex items-center mb-4">
-            <i class="fas fa-paint-brush text-blue ml-2"></i>
-            <h3 class="text-xl font-bold text-navy">ورشة الرسم والإبداع</h3>
-        </div>
-        <p class="text-gray-600 mb-4">انضم إلى ورشة فنية للتعبير عن إبداعك من خلال الرسم والتلوين. مناسبة لجميع المستويات.</p>
-        <div class="flex justify-between items-center text-sm text-gray-500">
-            <div class="flex items-center">
-                <i class="fas fa-map-marker-alt ml-1"></i>
-                <span>الزرقاء، الأردن</span>
-            </div>
-            
-        </div>
-    </div>
-    <div class="p-4 bg-gray-50 border-t border-gray-100">
-        <a href="#" class="btn-register btn-blue">
-            تبرع الآن
-            <i class="fas fa-arrow-left mr-2"></i>
-        </a>
-    </div>
-</div>
+        <div
+          id="activities"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <!-- Activity Card 1: Volunteering -->
 
-<!-- Activity Card 3: Sport -->
-<div class="activity-card relative bg-white rounded-xl overflow-hidden shadow-lg" data-category="sport" data-location="اربد">
-    <div class="activity-tag bg-green text-white px-3 py-1 text-sm font-bold rounded-md">
-        رياضة
-    </div>
-    <img src="/img/576b859e0ef04f2296d8ce8a8f1c4dff.jpeg" alt="نشاط رياضي" class="w-full h-48 object-cover">
-    <div class="p-6">
-        <div class="flex items-center mb-4">
-            <i class="fas fa-running text-green ml-2"></i>
-            <h3 class="text-xl font-bold text-navy">مسابقة الجري الخيرية</h3>
-        </div>
-        <p class="text-gray-600 mb-4">شارك في سباق الجري الخيري لدعم مشاريع التعليم. مناسب لجميع الأعمار والمستويات.</p>
-        <div class="flex justify-between items-center text-sm text-gray-500">
-            <div class="flex items-center">
-                <i class="fas fa-map-marker-alt ml-1"></i>
-                <span>اربد، الأردن</span>
+          <div
+            class="activity-card relative bg-white rounded-xl overflow-hidden shadow-lg"
+            data-category="volunteer"
+            data-location="عمان"
+          >
+            <div
+              class="activity-tag bg-orange text-white px-3 py-1 text-sm font-bold rounded-md"
+            >
+              تطوع
             </div>
-            
-        </div>
-    </div>
-    <div class="p-4 bg-gray-50 border-t border-gray-100">
-        <a href="#" class="btn-register btn-green">
-            تبرع الآن
-            <i class="fas fa-arrow-left mr-2"></i>
-        </a>
-    </div>
-</div>
+            <img
+              src="/img/توزيع.jpeg"
+              alt="نشاط التطوع"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <i class="fas fa-hands-helping text-orange ml-2"></i>
+                <h3 class="text-xl font-bold text-navy">
+                  تطوع في توزيع الطعام
+                </h3>
+              </div>
+              <p class="text-gray-600 mb-4">
+                ساعد في توزيع الطعام للعائلات المحتاجة في عمّان. يُقام هذا
+                النشاط كل يوم سبت.
+              </p>
+              <div
+                class="flex justify-between items-center text-sm text-gray-500"
+              >
+                <div class="flex items-center">
+                  <i class="fas fa-map-marker-alt ml-1"></i>
+                  <span>عمّان، الأردن</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 bg-gray-50 border-t border-gray-100">
+              <a href="../Payment/payment.html" class="btn-register">
+                تبرع الآن
+                <i class="fas fa-arrow-left mr-2"></i>
+              </a>
+            </div>
+          </div>
 
-<!-- Activity Card 4: Food -->
-<div class="activity-card relative bg-white rounded-xl overflow-hidden shadow-lg" data-category="food" data-location="عمان">
-    <div class="activity-tag bg-orange text-white px-3 py-1 text-sm font-bold rounded-md">
-        طعام
-    </div>
-    <img src="/img/تقليل.jpeg" alt="تقليل هدر الطعام" class="w-full h-48 object-cover">
-    <div class="p-6">
-        <div class="flex items-center mb-4">
-            <i class="fas fa-utensils text-orange ml-2"></i>
-            <h3 class="text-xl font-bold text-navy">حملة تقليل هدر الطعام</h3>
-        </div>
-        <p class="text-gray-600 mb-4">انضم إلى حملتنا لتقليل هدر الطعام خلال شهر رمضان. سنقوم بجمع فائض الطعام وتوزيعه على المحتاجين.</p>
-        <div class="flex justify-between items-center text-sm text-gray-500">
-            <div class="flex items-center">
-                <i class="fas fa-map-marker-alt ml-1"></i>
-                <span>عمّان، الأردن</span>
+          <!-- Activity Card 2: Workshop -->
+          <div
+            class="activity-card relative bg-white rounded-xl overflow-hidden shadow-lg"
+            data-category="workshop"
+            data-location="الزرقاء"
+          >
+            <div
+              class="activity-tag bg-blue text-white px-3 py-1 text-sm font-bold rounded-md"
+            >
+              ورش عمل
             </div>
-           
-        </div>
-    </div>
-    <div class="p-4 bg-gray-50 border-t border-gray-100">
-        <a href="#" class="btn-register">
-            تبرع الآن
-            <i class="fas fa-arrow-left mr-2"></i>
-        </a>
-    </div>
-</div>
+            <img
+              src="\img\2369_8257_ورشة-رسم-706x470.png"
+              alt="ورشة عمل فنية"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <i class="fas fa-paint-brush text-blue ml-2"></i>
+                <h3 class="text-xl font-bold text-navy">ورشة الرسم والإبداع</h3>
+              </div>
+              <p class="text-gray-600 mb-4">
+                انضم إلى ورشة فنية للتعبير عن إبداعك من خلال الرسم والتلوين.
+                مناسبة لجميع المستويات.
+              </p>
+              <div
+                class="flex justify-between items-center text-sm text-gray-500"
+              >
+                <div class="flex items-center">
+                  <i class="fas fa-map-marker-alt ml-1"></i>
+                  <span>الزرقاء، الأردن</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 bg-gray-50 border-t border-gray-100">
+              <a href="../Payment/payment.html" class="btn-register btn-blue">
+                تبرع الآن
+                <i class="fas fa-arrow-left mr-2"></i>
+              </a>
+            </div>
+          </div>
 
-<!-- Activity Card 5: Iftar -->
-<div class="activity-card relative bg-white rounded-xl overflow-hidden shadow-lg" data-category="iftar" data-location="العقبة">
-    <div class="activity-tag bg-gold text-white px-3 py-1 text-sm font-bold rounded-md">
-        إفطار
-    </div>
-    <img src="/img/افطار جماعي.jpg" alt="إفطار جماعي" class="w-full h-48 object-cover">
-    <div class="p-6">
-        <div class="flex items-center mb-4">
-            <i class="fas fa-moon text-gold ml-2"></i>
-            <h3 class="text-xl font-bold text-navy">إفطار جماعي رمضاني</h3>
-        </div>
-        <p class="text-gray-600 mb-4">المشاركة في تنظيم وإعداد إفطار جماعي للمحتاجين والمسافرين. يقام هذا النشاط يومياً طوال شهر رمضان.</p>
-        <div class="flex justify-between items-center text-sm text-gray-500">
-            <div class="flex items-center">
-                <i class="fas fa-map-marker-alt ml-1"></i>
-                <span>العقبة، الأردن</span>
+          <!-- Activity Card 3: Sport -->
+          <div
+            class="activity-card relative bg-white rounded-xl overflow-hidden shadow-lg"
+            data-category="sport"
+            data-location="اربد"
+          >
+            <div
+              class="activity-tag bg-green text-white px-3 py-1 text-sm font-bold rounded-md"
+            >
+              رياضة
             </div>
-           
-        </div>
-    </div>
-    <div class="p-4 bg-gray-50 border-t border-gray-100">
-        <a href="#" class="btn-register" style="background-color: #F3C623;">
-            تبرع الآن
-            <i class="fas fa-arrow-left mr-2"></i>
-        </a>
-    </div>
-</div>
+            <img
+              src="/img/576b859e0ef04f2296d8ce8a8f1c4dff.jpeg"
+              alt="نشاط رياضي"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <i class="fas fa-running text-green ml-2"></i>
+                <h3 class="text-xl font-bold text-navy">
+                  مسابقة الجري الخيرية
+                </h3>
+              </div>
+              <p class="text-gray-600 mb-4">
+                شارك في سباق الجري الخيري لدعم مشاريع التعليم. مناسب لجميع
+                الأعمار والمستويات.
+              </p>
+              <div
+                class="flex justify-between items-center text-sm text-gray-500"
+              >
+                <div class="flex items-center">
+                  <i class="fas fa-map-marker-alt ml-1"></i>
+                  <span>اربد، الأردن</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 bg-gray-50 border-t border-gray-100">
+              <a href="../Payment/payment.html" class="btn-register btn-green">
+                تبرع الآن
+                <i class="fas fa-arrow-left mr-2"></i>
+              </a>
+            </div>
+          </div>
 
-<!-- Activity Card 6: Education -->
-<div class="activity-card relative bg-white rounded-xl overflow-hidden shadow-lg" data-category="education" data-location="الزرقاء">
-    <div class="activity-tag bg-blue text-white px-3 py-1 text-sm font-bold rounded-md">
-        تعليم
-    </div>
-    <img src="/img/تعليم قراءة.jpeg" alt="تعليم الأطفال" class="w-full h-48 object-cover">
-    <div class="p-6">
-        <div class="flex items-center mb-4">
-            <i class="fas fa-book-open text-blue ml-2"></i>
-            <h3 class="text-xl font-bold text-navy">تعليم الأطفال القراءة</h3>
-        </div>
-        <p class="text-gray-600 mb-4">ساعد في تعليم الأطفال مهارات القراءة والكتابة. يحتاج المتطوعون خبرة تعليمية بسيطة.</p>
-        <div class="flex justify-between items-center text-sm text-gray-500">
-            <div class="flex items-center">
-                <i class="fas fa-map-marker-alt ml-1"></i>
-                <span>الزرقاء، الأردن</span>
+          <!-- Activity Card 4: Food -->
+          <div
+            class="activity-card relative bg-white rounded-xl overflow-hidden shadow-lg"
+            data-category="food"
+            data-location="عمان"
+          >
+            <div
+              class="activity-tag bg-orange text-white px-3 py-1 text-sm font-bold rounded-md"
+            >
+              طعام
             </div>
-            
-        </div>
-    </div>
-    <div class="p-4 bg-gray-50 border-t border-gray-100">
-        <a href="#" class="btn-register btn-blue">
-            تبرع الآن
-            <i class="fas fa-arrow-left mr-2"></i>
-        </a>
-    </div>
-</div>
+            <img
+              src="/img/تقليل.jpeg"
+              alt="تقليل هدر الطعام"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <i class="fas fa-utensils text-orange ml-2"></i>
+                <h3 class="text-xl font-bold text-navy">
+                  حملة تقليل هدر الطعام
+                </h3>
+              </div>
+              <p class="text-gray-600 mb-4">
+                انضم إلى حملتنا لتقليل هدر الطعام خلال شهر رمضان. سنقوم بجمع
+                فائض الطعام وتوزيعه على المحتاجين.
+              </p>
+              <div
+                class="flex justify-between items-center text-sm text-gray-500"
+              >
+                <div class="flex items-center">
+                  <i class="fas fa-map-marker-alt ml-1"></i>
+                  <span>عمّان، الأردن</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 bg-gray-50 border-t border-gray-100">
+              <a href="../Payment/payment.html" class="btn-register">
+                تبرع الآن
+                <i class="fas fa-arrow-left mr-2"></i>
+              </a>
+            </div>
+          </div>
 
+          <!-- Activity Card 5: Iftar -->
+          <div
+            class="activity-card relative bg-white rounded-xl overflow-hidden shadow-lg"
+            data-category="iftar"
+            data-location="العقبة"
+          >
+            <div
+              class="activity-tag bg-gold text-white px-3 py-1 text-sm font-bold rounded-md"
+            >
+              إفطار
             </div>
+            <img
+              src="/img/افطار جماعي.jpg"
+              alt="إفطار جماعي"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <i class="fas fa-moon text-gold ml-2"></i>
+                <h3 class="text-xl font-bold text-navy">إفطار جماعي رمضاني</h3>
+              </div>
+              <p class="text-gray-600 mb-4">
+                المشاركة في تنظيم وإعداد إفطار جماعي للمحتاجين والمسافرين. يقام
+                هذا النشاط يومياً طوال شهر رمضان.
+              </p>
+              <div
+                class="flex justify-between items-center text-sm text-gray-500"
+              >
+                <div class="flex items-center">
+                  <i class="fas fa-map-marker-alt ml-1"></i>
+                  <span>العقبة، الأردن</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 bg-gray-50 border-t border-gray-100">
+              <a
+                href="../Payment/payment.html"
+                class="btn-register"
+                style="background-color: #f3c623"
+              >
+                تبرع الآن
+                <i class="fas fa-arrow-left mr-2"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Activity Card 6: Education -->
+          <div
+            class="activity-card relative bg-white rounded-xl overflow-hidden shadow-lg"
+            data-category="education"
+            data-location="الزرقاء"
+          >
+            <div
+              class="activity-tag bg-blue text-white px-3 py-1 text-sm font-bold rounded-md"
+            >
+              تعليم
+            </div>
+            <img
+              src="/img/تعليم قراءة.jpeg"
+              alt="تعليم الأطفال"
+              class="w-full h-48 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center mb-4">
+                <i class="fas fa-book-open text-blue ml-2"></i>
+                <h3 class="text-xl font-bold text-navy">
+                  تعليم الأطفال القراءة
+                </h3>
+              </div>
+              <p class="text-gray-600 mb-4">
+                ساعد في تعليم الأطفال مهارات القراءة والكتابة. يحتاج المتطوعون
+                خبرة تعليمية بسيطة.
+              </p>
+              <div
+                class="flex justify-between items-center text-sm text-gray-500"
+              >
+                <div class="flex items-center">
+                  <i class="fas fa-map-marker-alt ml-1"></i>
+                  <span>الزرقاء، الأردن</span>
+                </div>
+              </div>
+            </div>
+            <div class="p-4 bg-gray-50 border-t border-gray-100">
+              <a href="../Payment/payment.html" class="btn-register btn-blue">
+                تبرع الآن
+                <i class="fas fa-arrow-left mr-2"></i>
+              </a>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <!-- Call to Action Section -->
     <section class="py-16 bg-navy text-white relative overflow-hidden">
-        <div class="absolute top-0 left-0 w-full h-full islamic-pattern opacity-10"></div>
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-6">كن جزءًا من الخير في شهر رمضان</h2>
-            <p class="text-lg mb-8 max-w-2xl mx-auto">سجل الآن للمشاركة في أنشطتنا الخيرية وساهم في نشر السعادة والفرحة في هذا الشهر الفضيل.</p>
-            <a href="#" class="inline-block bg-gold text-navy font-bold py-3 px-8 rounded-lg transition-all hover:bg-opacity-90 hover:shadow-lg">
-                سجل الآن
-                <i class="fas fa-heart ml-2"></i>
-            </a>
-        </div>
+      <div
+        class="absolute top-0 left-0 w-full h-full islamic-pattern opacity-10"
+      ></div>
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold mb-6">كن جزءًا من الخير في شهر رمضان</h2>
+        <p class="text-lg mb-8 max-w-2xl mx-auto">
+          سجل الآن للمشاركة في أنشطتنا الخيرية وساهم في نشر السعادة والفرحة في
+          هذا الشهر الفضيل.
+        </p>
+        <a
+          href="../Login//login.html"
+          class="inline-block bg-gold text-navy font-bold py-3 px-8 rounded-lg transition-all hover:bg-opacity-90 hover:shadow-lg"
+        >
+          سجل الآن
+          <i class="fas fa-heart ml-2"></i>
+        </a>
+      </div>
     </section>
-
-        <!-- JavaScript for filtering activities -->
-        <script src="activityPage.js"></script>
-            
-        
-    </body>
-    
-    </html>
+    <footer class="bg-[#10334C] text-white p-4 mt-16">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+          <!-- شعار التطبيق -->
+          <div class="text-2xl font-bold">
+              <img
+                src="../../img//logo.png"
+                alt="شعار التطبيق"
+                class="h-14 inline-block mr-2 bg-[#ec8305]"
+              />
+              رمضان الخير
+            </div>
+          <!-- روابط إضافية -->
+          <nav>
+            <ul class="flex space-x-6">
+              <li><a href="#" class="hover:text-[#EC8305]">عن التطبيق</a></li>
+              <li><a href="#" class="hover:text-[#EC8305]">سياسة الخصوصية</a></li>
+              <li><a href="#" class="hover:text-[#EC8305]">اتصل بنا</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="text-center mt-2">
+          <p class="text-sm">  Made With &lt;3 By Tech Titans</3></p>
+        </div>
+      </footer>
+    <!-- JavaScript for filtering activities -->
+    <script src="activityPage.js"></script>
+  </body>
+</html>
