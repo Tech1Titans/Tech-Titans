@@ -5,38 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>حاسبة الزكاة - رمضان 1446</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            emerald: {
-              50: '#ecfdf5',
-              100: '#d1fae5',
-              200: '#a7f3d0',
-              300: '#6ee7b7',
-              400: '#34d399',
-              500: '#10b981',
-              600: '#059669',
-              700: '#047857',
-              800: '#065f46',
-              900: '#064e3b',
-              950: '#022c22',
-            },
-            amber: {
-              50: '#fffbeb',
-              100: '#fef3c7',
-              200: '#fde68a',
-              300: '#fcd34d',
-              400: '#fbbf24',
-              500: '#f59e0b',
-              600: '#d97706',
-              700: '#b45309',
-              800: '#92400e',
-              900: '#78350f',
-              950: '#451a03',
-            },
+            primary: "#10375C",   /* Dark blue */
+            secondary: "#EB8317", /* Orange */
+            accent: "#F3C623",    /* Yellow */
+            light: "#F4F6FF",     /* Light color */
           },
         },
       },
@@ -45,24 +24,24 @@
   <style>
     body {
       font-family: 'Tajawal', sans-serif;
-      background-color: #f8fafc;
+      background-color: #F4F6FF;
       background-image: 
-        radial-gradient(#064e3b 0.5px, transparent 0.5px),
-        radial-gradient(#064e3b 0.5px, #f8fafc 0.5px);
+        radial-gradient(#10375C 0.5px, transparent 0.5px),
+        radial-gradient(#10375C 0.5px, #F4F6FF 0.5px);
       background-size: 20px 20px;
       background-position: 0 0, 10px 10px;
     }
     
     .pattern-overlay {
-      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 10 C35 25, 45 30, 30 50 C15 30, 25 25, 30 10' fill='none' stroke='%23047857' stroke-opacity='0.1' stroke-width='1'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 10 C35 25, 45 30, 30 50 C15 30, 25 25, 30 10' fill='none' stroke='%2310375C' stroke-opacity='0.1' stroke-width='1'/%3E%3C/svg%3E");
     }
     
     .gold-gradient {
-      background: linear-gradient(135deg, #fef3c7 0%, #fbbf24 100%);
+      background: linear-gradient(135deg, #F4F6FF 0%, #F3C623 100%);
     }
     
     .silver-gradient {
-      background: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%);
+      background: linear-gradient(135deg, #F4F6FF 0%, #cbd5e1 100%);
     }
     
     @keyframes pulse-subtle {
@@ -75,7 +54,7 @@
     }
     
     .islamic-pattern {
-      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,50 L50,20 L80,50 L50,80 Z' fill='none' stroke='%23047857' stroke-opacity='0.08' stroke-width='1'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20,50 L50,20 L80,50 L50,80 Z' fill='none' stroke='%2310375C' stroke-opacity='0.08' stroke-width='1'/%3E%3C/svg%3E");
     }
   </style>
 </head>
@@ -86,14 +65,14 @@
       <!-- Decorative Elements -->
       <div class="absolute -top-4 left-1/4 opacity-70 hidden md:block">
         <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50,10 a40,40 0 0,1 0,80 a40,40 0 0,1 0,-80" fill="none" stroke="#f59e0b" stroke-width="1.5" stroke-dasharray="5,5"></path>
-          <circle cx="70" cy="50" r="4" fill="#f59e0b" fill-opacity="0.5"></circle>
+          <path d="M50,10 a40,40 0 0,1 0,80 a40,40 0 0,1 0,-80" fill="none" stroke="#F3C623" stroke-width="1.5" stroke-dasharray="5,5"></path>
+          <circle cx="70" cy="50" r="4" fill="#F3C623" fill-opacity="0.5"></circle>
         </svg>
       </div>
       <div class="absolute -top-8 right-1/4 opacity-70 hidden md:block">
         <svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50,20 a30,30 0 0,1 0,60 a30,30 0 0,1 0,-60" fill="none" stroke="#10b981" stroke-width="1.5"></path>
-          <circle cx="70" cy="50" r="3" fill="#10b981"></circle>
+          <path d="M50,20 a30,30 0 0,1 0,60 a30,30 0 0,1 0,-60" fill="none" stroke="#10375C" stroke-width="1.5"></path>
+          <circle cx="70" cy="50" r="3" fill="#10375C"></circle>
         </svg>
       </div>
       
@@ -102,32 +81,32 @@
         <div class="flex items-center justify-center">
           <div class="w-12 h-12 relative animate-pulse-subtle hidden sm:block">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-              <path fill="#f59e0b" d="M12,2 A10,10 0 0,0 12,22 A10,10 0 0,0 12,2 M12,4 A8,8 0 0,1 12,20 A8,4 0 0,1 12,4"></path>
+              <path fill="#F3C623" d="M12,2 A10,10 0 0,0 12,22 A10,10 0 0,0 12,2 M12,4 A8,8 0 0,1 12,20 A8,4 0 0,1 12,4"></path>
             </svg>
           </div>
-          <h1 class="text-4xl md:text-5xl font-bold text-emerald-800 px-4">حاسبة الزكاة</h1>
+          <h1 class="text-4xl md:text-5xl font-bold text-primary px-4">حاسبة الزكاة</h1>
           <div class="w-12 h-12 relative animate-pulse-subtle hidden sm:block">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="w-full h-full">
-              <path fill="#f59e0b" d="M12,2 A10,10 0 0,0 12,22 A10,10 0 0,0 12,2 M12,4 A8,8 0 0,1 12,20 A8,4 0 0,1 12,4"></path>
+              <path fill="#F3C623" d="M12,2 A10,10 0 0,0 12,22 A10,10 0 0,0 12,2 M12,4 A8,8 0 0,1 12,20 A8,4 0 0,1 12,4"></path>
             </svg>
           </div>
         </div>
-        <div class="h-1 bg-gradient-to-r from-emerald-500 via-amber-400 to-emerald-500 rounded-full mt-2"></div>
+        <div class="h-1 bg-gradient-to-r from-primary via-secondary to-primary rounded-full mt-2"></div>
       </div>
       
-      <p class="text-lg text-emerald-800/80 mt-6 max-w-2xl mx-auto">
+      <p class="text-lg text-primary/80 mt-6 max-w-2xl mx-auto">
         حساب زكاة المال والذهب والفضة بطريقة دقيقة وميسّرة لشهر رمضان المبارك ١٤٤٦
       </p>
       
       <!-- Decorative Divider -->
       <div class="flex items-center justify-center my-8">
-        <div class="h-px bg-emerald-500/20 flex-1 max-w-xs"></div>
-        <div class="mx-4 text-amber-500">
+        <div class="h-px bg-primary/20 flex-1 max-w-xs"></div>
+        <div class="mx-4 text-secondary">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8">
             <path d="M12 2C7.589 2 4 5.589 4 9.995C3.971 16.44 11.696 21.784 12 22C12.304 21.784 20.029 16.44 20 9.995C20 5.589 16.411 2 12 2ZM12 14C9.791 14 8 12.209 8 10C8 7.791 9.791 6 12 6C14.209 6 16 7.791 16 10C16 12.209 14.209 14 12 14Z"></path>
           </svg>
         </div>
-        <div class="h-px bg-emerald-500/20 flex-1 max-w-xs"></div>
+        <div class="h-px bg-primary/20 flex-1 max-w-xs"></div>
       </div>
     </div>
 
@@ -135,21 +114,21 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
       <!-- Left Panel: Information About Zakat -->
       <div class="islamic-pattern">
-        <div class="bg-white rounded-2xl shadow-xl border border-emerald-100 overflow-hidden">
+        <div class="bg-white rounded-2xl shadow-xl border border-primary/10 overflow-hidden">
           <!-- Header with Tabs -->
-          <div class="bg-emerald-900 text-white p-4">
+          <div class="bg-primary text-white p-4">
             <h2 class="text-xl font-bold text-center">أحكام الزكاة</h2>
           </div>
           
           <!-- Tabs Navigation -->
-          <div class="flex border-b border-emerald-100">
-            <button id="tab-money" class="flex-1 py-3 px-4 font-medium transition duration-200 bg-emerald-50 text-emerald-800 border-b-2 border-emerald-600">
+          <div class="flex border-b border-primary/10">
+            <button id="tab-money" class="flex-1 py-3 px-4 font-medium transition duration-200 bg-light text-primary border-b-2 border-primary">
               المال
             </button>
-            <button id="tab-gold" class="flex-1 py-3 px-4 font-medium transition duration-200 hover:bg-amber-50 hover:text-amber-800">
+            <button id="tab-gold" class="flex-1 py-3 px-4 font-medium transition duration-200 hover:bg-light hover:text-secondary">
               الذهب
             </button>
-            <button id="tab-silver" class="flex-1 py-3 px-4 font-medium transition duration-200 hover:bg-slate-50 hover:text-slate-800">
+            <button id="tab-silver" class="flex-1 py-3 px-4 font-medium transition duration-200 hover:bg-light hover:text-gray-800">
               الفضة
             </button>
           </div>
@@ -159,23 +138,23 @@
             <!-- Money Tab Content -->
             <div id="content-money" class="space-y-4">
               <div class="flex items-center justify-start space-x-3 space-x-reverse">
-                <div class="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 text-emerald-600">
+                <div class="w-10 h-10 rounded-full bg-light flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 text-primary">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-emerald-800">زكاة المال</h3>
+                <h3 class="text-xl font-bold text-primary">زكاة المال</h3>
               </div>
               
-              <div class="bg-emerald-50 p-4 rounded-lg border-r-4 border-emerald-500">
-                <p class="font-bold text-emerald-900 mb-1">النصاب:</p>
-                <p class="text-emerald-800 mb-3">يعادل قيمة 85 جرام من الذهب أو 595 جرام من الفضة (أيهما أقل).</p>
+              <div class="bg-light p-4 rounded-lg border-r-4 border-primary">
+                <p class="font-bold text-primary mb-1">النصاب:</p>
+                <p class="text-primary mb-3">يعادل قيمة 85 جرام من الذهب أو 595 جرام من الفضة (أيهما أقل).</p>
                 
-                <p class="font-bold text-emerald-900 mb-1">المقدار:</p>
-                <p class="text-emerald-800">2.5% من المال الذي بلغ نصابًا وحال عليه الحول.</p>
+                <p class="font-bold text-primary mb-1">المقدار:</p>
+                <p class="text-primary">2.5% من المال الذي بلغ نصابًا وحال عليه الحول.</p>
               </div>
               
-              <p class="text-emerald-800/80 text-right">
+              <p class="text-primary/80 text-right">
                 تجب الزكاة في المال النقدي سواء كان ورقيًا أو في حسابات مصرفية أو مدخرات، بشرط أن يبلغ النصاب وأن يمر عليه حول كامل.
               </p>
             </div>
@@ -183,23 +162,23 @@
             <!-- Gold Tab Content (Hidden) -->
             <div id="content-gold" class="space-y-4 hidden">
               <div class="flex items-center justify-start space-x-3 space-x-reverse">
-                <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 text-amber-600">
+                <div class="w-10 h-10 rounded-full bg-light flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 text-secondary">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8v1m0 0v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-amber-800">زكاة الذهب</h3>
+                <h3 class="text-xl font-bold text-secondary">زكاة الذهب</h3>
               </div>
               
-              <div class="bg-amber-50 p-4 rounded-lg border-r-4 border-amber-500">
-                <p class="font-bold text-amber-900 mb-1">النصاب:</p>
-                <p class="text-amber-800 mb-3">85 جرام من الذهب الخالص (24 قيراط).</p>
+              <div class="bg-light p-4 rounded-lg border-r-4 border-secondary">
+                <p class="font-bold text-secondary mb-1">النصاب:</p>
+                <p class="text-secondary mb-3">85 جرام من الذهب الخالص (24 قيراط).</p>
                 
-                <p class="font-bold text-amber-900 mb-1">المقدار:</p>
-                <p class="text-amber-800">2.5% من قيمة الذهب إذا بلغ النصاب وحال عليه الحول.</p>
+                <p class="font-bold text-secondary mb-1">المقدار:</p>
+                <p class="text-secondary">2.5% من قيمة الذهب إذا بلغ النصاب وحال عليه الحول.</p>
               </div>
               
-              <p class="text-amber-800/80 text-right">
+              <p class="text-secondary/80 text-right">
                 تشمل زكاة الذهب جميع أنواع الذهب سواء كان للاستعمال أو الادخار أو التجارة، وتحسب قيمتها حسب وزن الذهب الخالص.
               </p>
             </div>
@@ -207,23 +186,23 @@
             <!-- Silver Tab Content (Hidden) -->
             <div id="content-silver" class="space-y-4 hidden">
               <div class="flex items-center justify-start space-x-3 space-x-reverse">
-                <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 text-slate-600">
+                <div class="w-10 h-10 rounded-full bg-light flex items-center justify-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6 text-gray-600">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
-                <h3 class="text-xl font-bold text-slate-800">زكاة الفضة</h3>
+                <h3 class="text-xl font-bold text-gray-800">زكاة الفضة</h3>
               </div>
               
-              <div class="bg-slate-50 p-4 rounded-lg border-r-4 border-slate-500">
-                <p class="font-bold text-slate-900 mb-1">النصاب:</p>
-                <p class="text-slate-800 mb-3">595 جرام من الفضة الخالصة.</p>
+              <div class="bg-light p-4 rounded-lg border-r-4 border-gray-500">
+                <p class="font-bold text-gray-900 mb-1">النصاب:</p>
+                <p class="text-gray-800 mb-3">595 جرام من الفضة الخالصة.</p>
                 
-                <p class="font-bold text-slate-900 mb-1">المقدار:</p>
-                <p class="text-slate-800">2.5% من قيمة الفضة إذا بلغت النصاب وحال عليها الحول.</p>
+                <p class="font-bold text-gray-900 mb-1">المقدار:</p>
+                <p class="text-gray-800">2.5% من قيمة الفضة إذا بلغت النصاب وحال عليها الحول.</p>
               </div>
               
-              <p class="text-slate-800/80 text-right">
+              <p class="text-gray-800/80 text-right">
                 تشمل زكاة الفضة جميع أنواعها سواء كانت للاستعمال أو الادخار أو التجارة، وتحسب قيمتها حسب وزن الفضة الخالصة.
               </p>
             </div>
@@ -233,9 +212,9 @@
       
       <!-- Middle Panel: Calculator -->
       <div class="col-span-1 lg:col-span-2">
-        <div class="bg-white shadow-xl rounded-2xl border border-emerald-100 overflow-hidden">
+        <div class="bg-white shadow-xl rounded-2xl border border-primary/10 overflow-hidden">
           <!-- Calculator Header -->
-          <div class="bg-emerald-700 text-white p-4">
+          <div class="bg-primary text-white p-4">
             <h2 class="text-xl font-bold text-center">حاسبة الزكاة</h2>
           </div>
           
@@ -245,21 +224,21 @@
               <!-- Calculator Type Selection -->
               <div class="mb-8">
                 <div class="flex flex-wrap gap-4 justify-center">
-                  <button type="button" id="calc-money" class="flex flex-col items-center justify-center py-4 px-6 bg-emerald-500 text-white rounded-xl shadow-md transition hover:bg-emerald-600 active:bg-emerald-700">
+                  <button type="button" id="calc-money" class="flex flex-col items-center justify-center py-4 px-6 bg-primary text-white rounded-xl shadow-md transition hover:bg-primary/90 active:bg-primary/80">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-10 h-10 mb-2">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8v1m0 0v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <span class="font-bold">المال</span>
                   </button>
                   
-                  <button type="button" id="calc-gold" class="flex flex-col items-center justify-center py-4 px-6 bg-amber-100 text-amber-800 rounded-xl shadow-md transition hover:bg-amber-200 active:bg-amber-300">
+                  <button type="button" id="calc-gold" class="flex flex-col items-center justify-center py-4 px-6 bg-light text-secondary rounded-xl shadow-md transition hover:bg-light/90 active:bg-light/80">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-10 h-10 mb-2">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8v1m0 0v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <span class="font-bold">الذهب</span>
                   </button>
                   
-                  <button type="button" id="calc-silver" class="flex flex-col items-center justify-center py-4 px-6 bg-slate-100 text-slate-800 rounded-xl shadow-md transition hover:bg-slate-200 active:bg-slate-300">
+                  <button type="button" id="calc-silver" class="flex flex-col items-center justify-center py-4 px-6 bg-light text-gray-800 rounded-xl shadow-md transition hover:bg-light/90 active:bg-light/80">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-10 h-10 mb-2">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
@@ -270,41 +249,41 @@
               
               <!-- Money Calculator Form (Default) -->
               <div id="form-money" class="space-y-6">
-                <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-200">
-                  <label class="block font-medium text-emerald-800 mb-2">أدخل قيمة المال (بالريال السعودي)</label>
+                <div class="bg-light p-4 rounded-lg border border-light">
+                  <label class="block font-medium text-primary mb-2">أدخل قيمة المال (بالريال السعودي)</label>
                   <div class="flex items-center">
-                    <input type="number" id="money-amount" class="block w-full rounded-md border-emerald-300 shadow-sm focus:border-emerald-500 focus:ring focus:ring-emerald-200 focus:ring-opacity-50 p-3 text-lg" placeholder="0.00" min="0" step="0.01">
-                    <span class="text-emerald-800 mr-2 text-lg">ر.س</span>
+                    <input type="number" id="money-amount" class="block w-full rounded-md border-light shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 p-3 text-lg" placeholder="0.00" min="0" step="0.01">
+                    <span class="text-primary mr-2 text-lg">ر.س</span>
                   </div>
                 </div>
                 
                 <div class="flex items-center">
-                  <input type="checkbox" id="money-yearly" class="rounded border-emerald-300 text-emerald-600 shadow-sm focus:ring focus:ring-emerald-200 focus:ring-opacity-50">
-                  <label for="money-yearly" class="mr-2 font-medium text-emerald-800">مر عليه حول كامل (سنة هجرية)</label>
+                  <input type="checkbox" id="money-yearly" class="rounded border-light text-primary shadow-sm focus:ring focus:ring-primary focus:ring-opacity-50">
+                  <label for="money-yearly" class="mr-2 font-medium text-primary">مر عليه حول كامل (سنة هجرية)</label>
                 </div>
                 
-                <div class="bg-emerald-50 p-4 rounded-lg border border-emerald-200">
-                  <label class="block font-medium text-emerald-800 mb-2">سعر الذهب اليوم (جرام عيار 24)</label>
+                <div class="bg-light p-4 rounded-lg border border-light">
+                  <label class="block font-medium text-primary mb-2">سعر الذهب اليوم (جرام عيار 24)</label>
                   <div class="flex items-center">
-                    <input type="number" id="money-gold-price" class="block w-full rounded-md border-emerald-300 shadow-sm focus:border-emerald-500 focus:ring focus:ring-emerald-200 focus:ring-opacity-50 p-3 text-lg" placeholder="0.00" value="296.50" min="0" step="0.01">
-                    <span class="text-emerald-800 mr-2 text-lg">ر.س</span>
+                    <input type="number" id="money-gold-price" class="block w-full rounded-md border-light shadow-sm focus:border-primary focus:ring focus:ring-primary focus:ring-opacity-50 p-3 text-lg" placeholder="0.00" value="296.50" min="0" step="0.01">
+                    <span class="text-primary mr-2 text-lg">ر.س</span>
                   </div>
                 </div>
               </div>
               
               <!-- Gold Calculator Form (Hidden) -->
               <div id="form-gold" class="space-y-6 hidden">
-                <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
-                  <label class="block font-medium text-amber-800 mb-2">أدخل وزن الذهب (بالجرام)</label>
+                <div class="bg-light p-4 rounded-lg border border-light">
+                  <label class="block font-medium text-secondary mb-2">أدخل وزن الذهب (بالجرام)</label>
                   <div class="flex items-center">
-                    <input type="number" id="gold-weight" class="block w-full rounded-md border-amber-300 shadow-sm focus:border-amber-500 focus:ring focus:ring-amber-200 focus:ring-opacity-50 p-3 text-lg" placeholder="0.00" min="0" step="0.01">
-                    <span class="text-amber-800 mr-2 text-lg">جرام</span>
+                    <input type="number" id="gold-weight" class="block w-full rounded-md border-light shadow-sm focus:border-secondary focus:ring focus:ring-secondary focus:ring-opacity-50 p-3 text-lg" placeholder="0.00" min="0" step="0.01">
+                    <span class="text-secondary mr-2 text-lg">جرام</span>
                   </div>
                 </div>
                 
-                <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
-                  <label class="block font-medium text-amber-800 mb-2">عيار الذهب</label>
-                  <select id="gold-karat" class="block w-full rounded-md border-amber-300 shadow-sm focus:border-amber-500 focus:ring focus:ring-amber-200 focus:ring-opacity-50 p-3 text-lg">
+                <div class="bg-light p-4 rounded-lg border border-light">
+                  <label class="block font-medium text-secondary mb-2">عيار الذهب</label>
+                  <select id="gold-karat" class="block w-full rounded-md border-light shadow-sm focus:border-secondary focus:ring focus:ring-secondary focus:ring-opacity-50 p-3 text-lg">
                     <option value="24">24 قيراط (الذهب الخالص 999.9)</option>
                     <option value="22">22 قيراط (916)</option>
                     <option value="21">21 قيراط (875)</option>
@@ -314,32 +293,32 @@
                 </div>
                 
                 <div class="flex items-center">
-                  <input type="checkbox" id="gold-yearly" class="rounded border-amber-300 text-amber-600 shadow-sm focus:ring focus:ring-amber-200 focus:ring-opacity-50">
-                  <label for="gold-yearly" class="mr-2 font-medium text-amber-800">مر عليه حول كامل (سنة هجرية)</label>
+                  <input type="checkbox" id="gold-yearly" class="rounded border-light text-secondary shadow-sm focus:ring focus:ring-secondary focus:ring-opacity-50">
+                  <label for="gold-yearly" class="mr-2 font-medium text-secondary">مر عليه حول كامل (سنة هجرية)</label>
                 </div>
                 
-                <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
-                  <label class="block font-medium text-amber-800 mb-2">سعر الذهب اليوم (جرام عيار 24)</label>
+                <div class="bg-light p-4 rounded-lg border border-light">
+                  <label class="block font-medium text-secondary mb-2">سعر الذهب اليوم (جرام عيار 24)</label>
                   <div class="flex items-center">
-                    <input type="number" id="gold-price" class="block w-full rounded-md border-amber-300 shadow-sm focus:border-amber-500 focus:ring focus:ring-amber-200 focus:ring-opacity-50 p-3 text-lg" placeholder="0.00" value="296.50" min="0" step="0.01">
-                    <span class="text-amber-800 mr-2 text-lg">ر.س</span>
+                    <input type="number" id="gold-price" class="block w-full rounded-md border-light shadow-sm focus:border-secondary focus:ring focus:ring-secondary focus:ring-opacity-50 p-3 text-lg" placeholder="0.00" value="296.50" min="0" step="0.01">
+                    <span class="text-secondary mr-2 text-lg">ر.س</span>
                   </div>
                 </div>
               </div>
               
               <!-- Silver Calculator Form (Hidden) -->
               <div id="form-silver" class="space-y-6 hidden">
-                <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                  <label class="block font-medium text-slate-800 mb-2">أدخل وزن الفضة (بالجرام)</label>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                  <label class="block font-medium text-gray-800 mb-2">أدخل وزن الفضة (بالجرام)</label>
                   <div class="flex items-center">
-                    <input type="number" id="silver-weight" class="block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-500 focus:ring focus:ring-slate-200 focus:ring-opacity-50 p-3 text-lg" placeholder="0.00" min="0" step="0.01">
-                    <span class="text-slate-800 mr-2 text-lg">جرام</span>
+                    <input type="number" id="silver-weight" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring focus:ring-gray-200 focus:ring-opacity-50 p-3 text-lg" placeholder="0.00" min="0" step="0.01">
+                    <span class="text-gray-800 mr-2 text-lg">جرام</span>
                   </div>
                 </div>
                 
-                <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                  <label class="block font-medium text-slate-800 mb-2">نقاء الفضة</label>
-                  <select id="silver-purity" class="block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-500 focus:ring focus:ring-slate-200 focus:ring-opacity-50 p-3 text-lg">
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                  <label class="block font-medium text-gray-800 mb-2">نقاء الفضة</label>
+                  <select id="silver-purity" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring focus:ring-gray-200 focus:ring-opacity-50 p-3 text-lg">
                     <option value="999">999 (الفضة الخالصة)</option>
                     <option value="925">925 (الفضة الإسترليني)</option>
                     <option value="900">900 (فضة 90%)</option>
@@ -348,22 +327,22 @@
                 </div>
                 
                 <div class="flex items-center">
-                  <input type="checkbox" id="silver-yearly" class="rounded border-slate-300 text-slate-600 shadow-sm focus:ring focus:ring-slate-200 focus:ring-opacity-50">
-                  <label for="silver-yearly" class="mr-2 font-medium text-slate-800">مر عليه حول كامل (سنة هجرية)</label>
+                  <input type="checkbox" id="silver-yearly" class="rounded border-gray-300 text-gray-600 shadow-sm focus:border-gray-500 focus:ring focus:ring-gray-200 focus:ring-opacity-50">
+                  <label for="silver-yearly" class="mr-2 font-medium text-gray-800">مر عليه حول كامل (سنة هجرية)</label>
                 </div>
                 
-                <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
-                  <label class="block font-medium text-slate-800 mb-2">سعر الفضة اليوم (جرام فضة خالصة)</label>
+                <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                  <label class="block font-medium text-gray-800 mb-2">سعر الفضة اليوم (جرام فضة خالصة)</label>
                   <div class="flex items-center">
-                    <input type="number" id="silver-price" class="block w-full rounded-md border-slate-300 shadow-sm focus:border-slate-500 focus:ring focus:ring-slate-200 focus:ring-opacity-50 p-3 text-lg" placeholder="0.00" value="3.75" min="0" step="0.01">
-                    <span class="text-slate-800 mr-2 text-lg">ر.س</span>
+                    <input type="number" id="silver-price" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-gray-500 focus:ring focus:ring-gray-200 focus:ring-opacity-50 p-3 text-lg" placeholder="0.00" value="3.75" min="0" step="0.01">
+                    <span class="text-gray-800 mr-2 text-lg">ر.س</span>
                   </div>
                 </div>
               </div>
               
               <!-- Calculate Button -->
               <div class="mt-8">
-                <button type="button" id="calculate-btn" class="w-full py-4 px-6 bg-emerald-600 text-white text-xl font-bold rounded-xl shadow-lg transition hover:bg-emerald-700 active:bg-emerald-800 focus:ring-2 focus:ring-emerald-500 focus:ring-opacity-50">
+                <button type="button" id="calculate-btn" class="w-full py-4 px-6 bg-primary text-white text-xl font-bold rounded-xl shadow-lg transition hover:bg-primary/90 active:bg-primary/80 focus:ring-2 focus:ring-primary focus:ring-opacity-50">
                   احسب الزكاة
                 </button>
               </div>
@@ -372,29 +351,29 @@
         </div>
         
         <!-- Results Card (Hidden initially) -->
-        <div id="results-card" class="mt-8 bg-white shadow-xl rounded-2xl border border-emerald-100 overflow-hidden hidden">
-          <div class="bg-emerald-800 text-white p-4">
+        <div id="results-card" class="mt-8 bg-white shadow-xl rounded-2xl border border-light overflow-hidden hidden">
+          <div class="bg-primary text-white p-4">
             <h2 class="text-xl font-bold text-center">نتيجة حساب الزكاة</h2>
           </div>
           
           <div class="p-6">
             <div class="space-y-6">
               <!-- Nisab Status -->
-              <div id="nisab-status" class="bg-emerald-50 p-4 rounded-lg border-r-4 border-emerald-500">
-                <p class="font-bold text-emerald-900 text-lg">حالة النصاب:</p>
-                <p id="nisab-result" class="text-emerald-800 text-lg">لم يتم حساب الزكاة بعد.</p>
+              <div id="nisab-status" class="bg-light p-4 rounded-lg border-r-4 border-primary">
+                <p class="font-bold text-primary text-lg">حالة النصاب:</p>
+                <p id="nisab-result" class="text-primary text-lg">لم يتم حساب الزكاة بعد.</p>
               </div>
               
               <!-- Zakat amount if applicable -->
-              <div id="zakat-amount-container" class="bg-emerald-100 p-6 rounded-lg text-center border border-emerald-200">
-                <h3 class="text-lg font-bold text-emerald-800 mb-2">مقدار الزكاة المستحقة:</h3>
-                <p id="zakat-amount" class="text-3xl font-bold text-emerald-700">0.00 ر.س</p>
+              <div id="zakat-amount-container" class="bg-light p-6 rounded-lg text-center border border-light">
+                <h3 class="text-lg font-bold text-primary mb-2">مقدار الزكاة المستحقة:</h3>
+                <p id="zakat-amount" class="text-3xl font-bold text-primary">0.00 ر.س</p>
               </div>
               
               <!-- Calculation Details -->
-              <div class="bg-white p-4 rounded-lg border border-emerald-100">
-                <h3 class="text-lg font-bold text-emerald-800 mb-2">تفاصيل الحساب:</h3>
-                <div id="calculation-details" class="space-y-2 text-emerald-700">
+              <div class="bg-white p-4 rounded-lg border border-light">
+                <h3 class="text-lg font-bold text-primary mb-2">تفاصيل الحساب:</h3>
+                <div id="calculation-details" class="space-y-2 text-primary">
                   <!-- سيتم عرض التفاصيل هنا -->
                 </div>
               </div>
@@ -449,7 +428,7 @@
         activateTab("silver");
       });
 
-      // تفعيل أزرار اختيار نوع الحساب
+      // تفعيل أزرار اختيار نوع الحاسبة
       calcMoney.addEventListener("click", function () {
         switchCalcForm("money");
       });
@@ -530,19 +509,19 @@
       // دالة تفعيل تبويب الأحكام
       function activateTab(tabName) {
         [tabMoney, tabGold, tabSilver].forEach(function (tab) {
-          tab.classList.remove("border-b-2", "bg-emerald-50", "text-emerald-800", "hover:bg-amber-50", "hover:text-amber-800", "hover:bg-slate-50", "hover:text-slate-800");
+          tab.classList.remove("border-b-2", "bg-light", "text-primary", "hover:bg-light", "hover:text-secondary", "hover:bg-gray-50", "hover:text-gray-800");
         });
         [contentMoney, contentGold, contentSilver].forEach(function (content) {
           content.classList.add("hidden");
         });
         if (tabName === "money") {
-          tabMoney.classList.add("bg-emerald-50", "text-emerald-800", "border-b-2", "border-emerald-600");
+          tabMoney.classList.add("bg-light", "text-primary", "border-b-2", "border-primary");
           contentMoney.classList.remove("hidden");
         } else if (tabName === "gold") {
-          tabGold.classList.add("bg-amber-50", "text-amber-800", "border-b-2", "border-amber-600");
+          tabGold.classList.add("bg-light", "text-secondary", "border-b-2", "border-secondary");
           contentGold.classList.remove("hidden");
         } else if (tabName === "silver") {
-          tabSilver.classList.add("bg-slate-50", "text-slate-800", "border-b-2", "border-slate-600");
+          tabSilver.classList.add("bg-gray-50", "text-gray-800", "border-b-2", "border-gray-600");
           contentSilver.classList.remove("hidden");
         }
       }
@@ -554,17 +533,17 @@
           form.classList.add("hidden");
         });
         [calcMoney, calcGold, calcSilver].forEach(function (btn) {
-          btn.classList.remove("bg-emerald-700", "text-white", "bg-amber-200", "bg-slate-200");
+          btn.classList.remove("bg-primary", "text-white", "bg-light", "bg-gray-50");
         });
         if (type === "money") {
           formMoney.classList.remove("hidden");
-          calcMoney.classList.add("bg-emerald-700", "text-white");
+          calcMoney.classList.add("bg-primary", "text-white");
         } else if (type === "gold") {
           formGold.classList.remove("hidden");
-          calcGold.classList.add("bg-amber-200", "text-white");
+          calcGold.classList.add("bg-light", "text-white");
         } else if (type === "silver") {
           formSilver.classList.remove("hidden");
-          calcSilver.classList.add("bg-slate-200", "text-white");
+          calcSilver.classList.add("bg-gray-50", "text-white");
         }
       }
 
